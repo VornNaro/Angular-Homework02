@@ -1,0 +1,89 @@
+<form [formGroup]="formStudent" (ngSubmit)="onSubmit(formStudent)">
+    <div class="mt-5">
+        <button type="button" (click)="togleTag()"
+            class="text-white  p-4 text-xl bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{{textShowMe}}</button>
+
+        <div *ngIf="showMe">
+            <div class="mb-10">
+                <label for="stu_name"
+                    class="block mb-2 mt-5 text-xl font-medium text-gray-900 dark:text-gray-300 text-gray-500">Student
+                    Name</label>
+                <input type="text" id="large-input" formControlName="stu_name"
+                    class="block p-4 w-96 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <!-- <span class="text-gray-900" *ngIf="(registerFormControl.stu_name.touched || onSubmit)">
+                    Name is required
+                </span> -->
+                <div
+                    [hidden]="registerFormControl.stu_name.valid || registerFormControl.stu_name.untouched">
+                    <div>
+                        The following problems have been found with name:
+                    </div>
+                    <div [hidden]="!registerFormControl.stu_name.hasError('required')">
+                        The name is required
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <label for="large-input"
+                    class="block mb-2 mt-5 text-xl font-medium text-gray-900 dark:text-gray-300">Gender
+                </label>
+                <div class="flex ">
+                    <div class="flex items-center mr-4">
+                        <input id="yellow-radio" type="radio" value="male" formControlName="stu_gender"
+                            class="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="yellow-radio" class="ml-2 text-xl text-gray-900 dark:text-gray-300">Male</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input id="orange-radio" type="radio" value="female" formControlName="stu_gender"
+                            class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="orange-radio" class="ml-2 text-xl text-gray-900 dark:text-gray-300">Female</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input id="orange-radio" type="radio" value="other" formControlName="stu_gender"
+                            class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="orange-radio" class="ml-2 text-xl  text-gray-900 dark:text-gray-300">other</label>
+                    </div>
+
+                </div>
+                <div
+                    [hidden]="registerFormControl.stu_gender.valid || registerFormControl.stu_gender.untouched">
+                    <div>
+                        The following problems have been found with name:
+                    </div>
+                    <div [hidden]="!registerFormControl.stu_gender.hasError('required')">
+                        The gender is required
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <label for="large-input"
+                    class="block mb-2 mt-5 text-xl font-medium text-gray-900 dark:text-gray-300">Subject</label>
+
+                <select id="countries" formControlName="stu_subject"
+                    class="bg-gray-50 border text-xl p-4 border-gray-300 text-gray-900 text-sm rounded-lg w-96 focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="" selected="">Choose Subject</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Data Analytic">Data Analytic</option>
+                    <option value="Blockchain">Blockchain</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="IOS">IOS</option>
+                    <option value="Andriod">Andriod</option>
+                </select>
+                <div
+                [hidden]="registerFormControl.stu_subject.valid || registerFormControl.stu_subject.untouched">
+                <div>
+                    The following problems have been found with name:
+                </div>
+                <div [hidden]="!registerFormControl.stu_subject.hasError('required')">
+                    The gender is required
+                </div>
+            </div>
+            </div>
+            <div class="mt-5">
+                <button type="submit" [disabled]="!formStudent.valid" cursor="pointer"
+                    class="text-white  p-4 text-xl bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</form>
